@@ -1,0 +1,87 @@
+<!-- learning to code a game using the following tutorial:
+https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <!-- physics and other extras -->
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+    <script>
+      $ = (sel) => document.querySelector(sel);
+      $$ = (sel) => document.querySelectorAll(sel);
+      on = (elem, type, hand) => elem.addEventListener(type, hand);
+    </script>
+  </head>
+  <body>
+    <a-scene stats physics="debug:true">
+      <a-assets>
+        <a-asset-item id="imp" src="imp/scene.gltf"></a-asset-item>
+        <a-asset-item id="staff" src="staff/scene.gltf"></a-asset-item>
+      </a-assets>
+      <a-entity camera look-controls position="0 1.5 0">
+        <a-cursor></a-cursor>
+        <a-text
+          id="score"
+          value="Score"
+          position="-0.2 -0.5 -1"
+          color="black"
+          width="5"
+          anchor="left"
+        ></a-text>
+
+        <a-entity
+          rotation="-15 -40 0"
+          position="0 0 -4"
+          id="weapon"
+          static-body="shape:sphere; sphereRadius: 0.3;"
+        >
+          <a-entity
+            scale="0.25 0.25 0.25"
+            position="1.034 -0.611 1.428"
+            gltf-model="#staff"
+          ></a-entity>
+        </a-entity>
+      </a-entity>
+      <a-entity id="ball" position="0 1 4" dynamic-body>
+        <a-entity id="ipm-model" gltf-model="#imp"></a-entity>
+      </a-entity>
+      <a-plane
+        static-body
+        color="red"
+        rotation="-90 0 0"
+        width="100"
+        height="100"
+      ></a-plane>
+    </a-scene>
+    <script>
+      let score = 0;
+      let hit = false;
+      let resetId = 0;
+      const resetBall = () => {
+        clearTimeout(resetId);
+        $("#ball").body.position.set(0, 0.6, -4);
+        $("#ball").body.velocity.set(0, 5, 0);
+        $("#ball").body.angularVelocity.set(0, 0, 0);
+        hit = false;
+        resetId = setTimeout(resetBall, 6000);
+      };
+
+      on($("#weapon"), "collide", (e) => {
+        const ball = $("#ball");
+        if (e.detail.body.id === ball.body.id && !hit) {
+          hit = true;
+          score = score + 1;
+          $("#score").setAttribute("text", "value", "Score " + score);
+          clearTimeout(resetId);
+          resetId = setTimeout(resetBall, 2000);
+        }
+      });
+
+      setTimeout(resetBall, 3000);
+    </script>
+  </body>
+</html>
