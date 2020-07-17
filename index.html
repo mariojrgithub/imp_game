@@ -65,7 +65,7 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
     </script>
   </head>
   <body>
-    <a-scene stats physics="debug:true">
+    <a-scene stats="false" physics="debug:false">
       <a-assets>
         <a-asset-item id="imp" src="imp/scene.gltf"></a-asset-item>
         <a-asset-item id="staff" src="staff/scene.gltf"></a-asset-item>
@@ -74,6 +74,7 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
         <a-asset-item id="bigTree" src="big_tree/scene.gltf"></a-asset-item>
         <a-asset-item id="tree" src="tree/scene.gltf"></a-asset-item>
         <a-asset-item id="cauldron" src="cauldron/scene.gltf"></a-asset-item>
+        <a-asset-item id="tavern" src="tavern/scene.gltf"></a-asset-item>
       </a-assets>
       <a-entity id="rig" position="0 1.5 0">
         <a-entity camera look-controls>
@@ -136,6 +137,13 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
       <a-entity
         position="8.07 -0.122 -5.163"
         gltf-model="big_tree/scene.gltf"
+      ></a-entity>
+      <!-- tavern -->
+      <a-entity
+        scale="0.005 0.005 0.005"
+        position="-20.50291 3.53594 -16.15714"
+        gltf-model="tavern/scene.gltf"
+        rotation="0 220 0"
       ></a-entity>
       <!-- rocks -->
       <a-entity
