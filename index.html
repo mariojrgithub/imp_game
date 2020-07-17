@@ -7,7 +7,7 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <!-- physics and other extras -->
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
     <script>
@@ -163,7 +163,7 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
       <a-sky color="#270d2c"></a-sky>
       <!-- lights -->
       <a-entity
-        light="type: directional; color:#ffc18f;intensity:0.8; castShadow: true"
+        light="type: directional; color:#ffc18f;intensity:1; castShadow: true"
         position="31 80 -50"
       ></a-entity>
       <!-- hemisphere light going from white to dark blue -->
@@ -171,11 +171,11 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
         light="type: hemisphere; color: white; groundColor: #5424ff; intensity: 0.6"
       ></a-entity>
       <a-entity
-        light="angle:15;type:spot;color:yellow"
+        light="angle:15;type:spot;color:yellow;intesity:10"
         position="0.734 8.188 4.184"
       ></a-entity>
       <a-entity
-        light="type: point; intensity: 1.6; distance: 5; decay: 2; color: red"
+        light="type: point; intensity: 2; distance: 5; decay: 2; color: red"
         position="0.275 -0.32 -3.77"
       ></a-entity>
     </a-scene>
