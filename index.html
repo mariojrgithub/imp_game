@@ -54,7 +54,7 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
                   y: (rg.real(-45, 45) * Math.PI) / 180,
                   z: 0,
                 });
-                const scale = rg.real(0.5, 1.5);
+                const scale = rg.real(2.5, 3.5);
                 el.setAttribute("scale", { x: scale, y: scale, z: scale });
                 $("a-scene").appendChild(el);
               }
@@ -124,7 +124,7 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
       ></a-entity>
       <!-- rocks -->
       <a-entity
-        distribute="jitter: 2 0.5 2; centerOffset: 0 0 -5; src: #rock; radius: 4"
+        distribute="jitter: 2 0.5 2; centerOffset: 0 -0.2 -5; src: #rock; radius: 4"
       ></a-entity>
       <!-- cauldron -->
       <a-entity
@@ -132,18 +132,36 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
         gltf-model="#cauldron"
         animation-mixer
       ></a-entity>
-
+      <!-- imp -->
       <a-entity id="ball" position="0 1 4" dynamic-body>
         <a-entity id="imp-model" gltf-model="#imp"></a-entity>
       </a-entity>
+      <!-- ground -->
       <a-plane
         static-body
-        color="red"
+        color="#52430e"
         rotation="-90 0 0"
         width="100"
         height="100"
       ></a-plane>
+      <!-- sky -->
+      <a-sky color="#270d2c"></a-sky>
+      <!-- lights -->
+      <a-entity
+        light="color:#ffffff;intensity:0.5"
+        position="31 80 -50"
+        intesity="3"
+      ></a-entity>
+      <!-- hemisphere light going from white to dark blue -->
+      <a-entity
+        light="type: hemisphere; color: white; groundColor: #5424ff; intensity: 0.6"
+      ></a-entity>
+      <a-entity
+        light="angle:15;type:spot;color:yellow"
+        position="0.734 8.188 4.184"
+      ></a-entity>
     </a-scene>
+
     <script>
       let score = 0;
       let hit = false;
