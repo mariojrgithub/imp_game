@@ -81,7 +81,7 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
           id="score"
           value="Score"
           position="-0.2 -0.5 -1"
-          color="black"
+          color="white"
           width="5"
           anchor="left"
         ></a-text>
@@ -93,9 +93,9 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
           static-body="shape:sphere; sphereRadius: 0.3;"
         >
           <a-entity
-            scale="0.25 0.25 0.25"
-            position="1.034 -0.611 1.428"
-            gltf-model="#staff"
+            scale="0.4 0.4 0.4"
+            position="0.602 -0.595 1.078"
+            gltf-model="staff/scene.gltf"
           ></a-entity>
         </a-entity>
       </a-entity>
@@ -113,6 +113,18 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
       <a-entity
         position="-6.402 -0.105 -12.938"
         gltf-model="tree/scene.gltf"
+      ></a-entity>
+      <a-entity
+        position="9.445 0.105 -23.225"
+        gltf-model="tree/scene.gltf"
+      ></a-entity>
+      <a-entity
+        position="19.507 -0.122 -32.876"
+        gltf-model="big_tree/scene.gltf"
+      ></a-entity>
+      <a-entity
+        position="-21.7 -0.122 -24.302"
+        gltf-model="big_tree/scene.gltf"
       ></a-entity>
       <a-entity
         position="-10.001 -0.122 -5.816"
@@ -148,9 +160,8 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
       <a-sky color="#270d2c"></a-sky>
       <!-- lights -->
       <a-entity
-        light="color:#ffffff;intensity:0.5"
+        light="type: directional; color:#ffc18f;intensity:0.8; castShadow: true"
         position="31 80 -50"
-        intesity="3"
       ></a-entity>
       <!-- hemisphere light going from white to dark blue -->
       <a-entity
@@ -159,6 +170,10 @@ https://hacks.mozilla.org/2018/03/immersive-aframe-low-poly/ -->
       <a-entity
         light="angle:15;type:spot;color:yellow"
         position="0.734 8.188 4.184"
+      ></a-entity>
+      <a-entity
+        light="type: point; intensity: 1.6; distance: 5; decay: 2; color: red"
+        position="0.275 -0.32 -3.77"
       ></a-entity>
     </a-scene>
 
